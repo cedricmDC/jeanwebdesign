@@ -8,8 +8,9 @@
     <div class="infos">
         <h3><?php echo $photos["titre"] ?> #<?php echo $photos["categorie"] ?></h3>
         <p>
-            <?php foreach ($photos["tags"] as $tag) : ?>
-                #<?php echo $tag; ?>
+            <?php $liste_tags = getAllTagsByPhoto($photos["id"]); ?>
+            <?php foreach ($liste_tags as $tag) : ?>
+                #<?php echo $tag["libelle"]; ?>
             <?php endforeach; ?>
         </p>
         <p><?php echo $photos["date_creation_format"]; ?></p>

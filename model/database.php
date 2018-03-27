@@ -12,14 +12,16 @@ function getAllPhotos(): array {
     global $connection;
 
     $query = "SELECT
-                id,
-                titre,
-                image,
-                date_creation,
+                photo.id,
+                photo.titre,
+                photo.image,
+                photo.date_creation,
                 date_format(date_creation,'%e %M %Y') AS 'date_creation_format',
-                nb_likes
+                photo.nb_likes,
+                categorie.libelle AS categorie
             FROM photo
-            ORDER BY date_creation DESC
+            INNER JOIN categorie ON categorie.id = photo.categorie_id
+            ORDER BY photo.date_creation DESC
             LIMIT 3;";
     
     $stmt = $connection->prepare($query);
@@ -47,4 +49,22 @@ function getPhoto(int $id):array {
     $stmt->execute();
     
     return $stmt->fetch();
+}
+
+
+function getAllTagsByPhoto(int $id): array{
+    global $connection;
+    
+    $query = "SELECT
+                tag.id,
+                tag.libelle
+            FROM tag
+            INNER JOIN photo_has_tag ON tag.id = photo_has_tag.tag_id
+            WHERE photo_has_tag.photo_id = :id;";
+    
+    $stmt = $connection->prepare($query);
+    $stmt->bindParam(":id", $id);
+    $stmt->execute();
+    
+    return $stmt->fetchAll();
 }
