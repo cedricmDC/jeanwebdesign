@@ -17,6 +17,7 @@ getheader($photo["titre"], "Page des photos Jean Webdesign");
 
 <main class="row col_center">
 
+<em><?php echo $photo["date_creation_format"];?></em>
 <h1><?php echo $photo["titre"]?></h1>
 
 <img src="images/<?php echo $photo["image"]; ?>">
@@ -27,6 +28,10 @@ getheader($photo["titre"], "Page des photos Jean Webdesign");
     <?php endforeach; ?>
 </ul>
 
+<p> <?php echo $photo["description"]; ?></p>
+<p><a href="categorie.php?id=<?php echo $photo['categorie_id']; ?>">
+      <?php echo $photo["categorie"]; ?></a></p>
+<p> <?php echo $photo["nb_likes"]; ?> likes</p>
 </main>
 
 <?php getfooter(); ?>

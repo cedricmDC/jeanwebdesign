@@ -6,7 +6,9 @@
     </a>
 
     <div class="infos">
-        <h3><?php echo $photos["titre"] ?> #<?php echo $photos["categorie"] ?></h3>
+        <h3><?php echo $photos["titre"] ?> 
+            <a href="categorie.php?id=<?php echo $photos["categorie_id"]; ?>">
+            #<?php echo $photos["categorie"] ?></a></h3>
         <p>
             <?php $liste_tags = getAllTagsByPhoto($photos["id"]); ?>
             <?php foreach ($liste_tags as $tag) : ?>
