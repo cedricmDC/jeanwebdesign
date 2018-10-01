@@ -14,3 +14,12 @@ i.fa{
         float: left;
     }
 }
+
+td .actions{
+    display: flex;
+    justify-content: space-around;
+}
+
+th.actions{
+    width: 270px;
+}
