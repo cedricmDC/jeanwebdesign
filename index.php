@@ -2,7 +2,7 @@
 require_once 'functions.php';
 require_once 'model/database.php';
 //Déclaration des variables
-$liste_photos = getAllPhotos();
+$liste_photos = getAllPhotos(3);
 //debug($liste_photos, false); /*true pour avoir juste le die (le code s'arrête) et false pour avoir tout le code*/
 
 

@@ -1,6 +1,8 @@
 *.DS_Store
-config/parameters.php
 *.bak
 _psd/
 nbproject/
+
+config/parameters.php
 admin/node_modules/
+uploads/

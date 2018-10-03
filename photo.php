@@ -21,7 +21,7 @@ getheader($photo["titre"], "Page des photos Jean Webdesign");
 <em><?php echo $photo["date_creation_format"];?></em>
 <h1><?php echo $photo["titre"]?></h1>
 
-<img src="images/<?php echo $photo["image"]; ?>">
+<img src="uploads/<?php echo $photo["image"]; ?>">
 
 
     <?php foreach ($liste_tags as $tag) : ?>
