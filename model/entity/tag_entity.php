@@ -1,5 +1,15 @@
 <?php
 
+function insertTag(string $libelle) {
+    global $connection;
+    
+    $query = "INSERT INTO tag (libelle) VALUES (:libelle)";
+    
+    $stmt = $connection->prepare($query);
+    $stmt->bindParam(':libelle', $libelle);
+    $stmt->execute();
+}
+
 function getAllTagsByPhoto(int $id): array{
     global $connection;
     
@@ -17,3 +27,13 @@ function getAllTagsByPhoto(int $id): array{
     return $stmt->fetchAll();
 }
 
+function updateTag(int $id, string $libelle) {
+    global $connection;
+    $query = "UPDATE tag SET libelle = :libelle WHERE id = :id";
+    
+    $stmt = $connection->prepare($query);
+    $stmt->bindParam(':id', $id);
+    $stmt->bindParam(':libelle', $libelle);
+    $stmt->execute();
+
+}

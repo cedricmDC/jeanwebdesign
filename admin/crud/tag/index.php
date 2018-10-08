@@ -1,7 +1,7 @@
 <?php
 require_once '../../../model/database.php';
 
-$liste_photos = getAllPhotos();
+$liste_tags = getAllEntities("tag");
 
 $error_msg = null;
 
@@ -21,7 +21,7 @@ if (isset($_GET["errcode"])){
 require_once '../../layout/header.php';
 ?>
 
-<h1>Gestion des photos</h1>
+<h1>Gestion des tags</h1>
 
 <a href="create.php" class="btn btn-primary">
     <i class="fa fa-plus"></i>
@@ -41,29 +41,21 @@ require_once '../../layout/header.php';
     <thead>
         <tr>
             <th>Titre</th>
-            <th>Image</th>
-            <th>Date création</th>
-            <th>Catégorie</th>
             <th class="actions">Actions</th>
         </tr>
     </thead>
     <tbody>
-<?php foreach ($liste_photos as $photo) : ?>
+<?php foreach ($liste_tags as $tag) : ?>
             <tr>
-                <td><?php echo $photo["titre"]; ?></td>
-                <td>
-                    <img src="../../../uploads/<?php echo $photo["image"]; ?>" class="img-thumbnail">
-                </td>
-                <td><?php echo $photo["date_creation_format"]; ?></td>
-                <td><?php echo $photo["categorie"]; ?></td>
+                <td><?php echo $tag["libelle"]; ?></td>
                 <td>
                     <div class="actions">
-                        <a href="update.php?id=<?php echo $photo["id"]; ?>" class="btn btn-warning">
+                        <a href="update.php?id=<?php echo $tag["id"]; ?>" class="btn btn-warning">
                             <i class="fa fa-edit"></i>
                             Modifier
                         </a>
                         <form action="delete_query.php" method="POST">
-                            <input type="hidden" name="id" value="<?php echo $photo["id"]; ?>">
+                            <input type="hidden" name="id" value="<?php echo $tag["id"]; ?>">
                             <button class="btn btn-danger">
                                 <i class="fa fa-trash"></i>
                                 Supprimer

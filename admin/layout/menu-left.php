@@ -2,7 +2,7 @@
           <div class="sidebar-sticky">
             <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="<?php echo $siteadmin; ?>index.php">
                     <i class="fa fa-home"></i>
                   Dashboard 
                 </a>
@@ -20,7 +20,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="<?php echo $siteadmin; ?>crud/tag/">
                   <i class="fa fa-tags"></i>
                   Tags
                 </a>

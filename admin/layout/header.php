@@ -12,6 +12,9 @@
     <!-- Bootstrap core CSS -->
     <link href="<?php echo $siteadmin;?>node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo $siteadmin; ?>node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="<?php echo $siteadmin; ?>node_modules/select2/dist/css/select2.min.css" rel="stylesheet">
+    <link href="<?php echo $siteadmin; ?>node_modules/tinymce/dist/css/tinymce.min.css" rel="stylesheet">
+    <link href="<?php echo $siteadmin; ?>node_modules/datatables/dist/css/datatables.min.css" rel="stylesheet">
     
     <!-- Custom styles for this template -->
     <link href="<?php echo $siteadmin; ?>css/dashboard.css" rel="stylesheet">
